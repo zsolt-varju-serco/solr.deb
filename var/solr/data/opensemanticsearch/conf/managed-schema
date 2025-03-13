@@ -110,12 +110,53 @@
          If you don't need it, consider removing it and the corresponding copyField directive.
     -->
 
-    <field name="id" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-    <!-- docValues are enabled by default for long type so we don't need to index the version field  -->
-    <field name="_version_" type="plong" indexed="false" stored="false"/>
-    <field name="_root_" type="string" indexed="true" stored="false" docValues="false" />
-    <field name="_text_" type="text_general" indexed="true" stored="true" multiValued="true"/>
-
+  <field name="_root_" type="string" docValues="false" indexed="true" stored="false"/>
+  <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="true"/>
+  <field name="_version_" type="plong" indexed="false" stored="false"/>
+  <field name="baseline" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="calendartype_ss" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="colorhexcode" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="colorhexcodemis" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="custom01" type="text_general"/>
+  <field name="custom02" type="text_general"/>
+  <field name="custom03" type="text_general"/>
+  <field name="custom04" type="text_general"/>
+  <field name="custom05" type="text_general"/>
+  <field name="custom06" type="text_general"/>
+  <field name="customtags" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="dateend" type="pdate" uninvertible="true" indexed="true" stored="true"/>
+  <field name="documenttype_ss" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="eogwid" type="pint" uninvertible="true" indexed="true" stored="true"/>
+  <field name="file_modified_dt" type="pdate" uninvertible="true" indexed="true" stored="true"/>
+  <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
+  <field name="instrument_ss" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="instrumenttypeuri" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="instrumenturi" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="level_ss" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="livemission" type="pint" uninvertible="true" indexed="true" stored="true"/>
+  <field name="mission_ss" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="missionuri" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="originalfn" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="originalupdate" type="pdate" uninvertible="true" indexed="true" stored="true"/>
+  <field name="overview" type="text_general"/>
+  <field name="producttype_ss" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="reportpath" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="reporttype" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="shorttitle" type="string" uninvertible="true" indexed="true" stored="true"/>
+ <field name="tagsfilename" type="text_general"/>
+  <field name="thematicarea" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="thematicareauri" type="strings" uninvertible="true" indexed="true" stored="true"/>
+  <field name="title" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <field name="update" type="pdate" uninvertible="true" indexed="true" stored="true"/>
+  <field name="version" type="string" uninvertible="true" indexed="true" stored="true"/>
+  <copyField source="overview" dest="overview_str" maxChars="256"/>
+  <copyField source="custom02" dest="custom02_str" maxChars="256"/>
+  <copyField source="custom01" dest="custom01_str" maxChars="256"/>
+  <copyField source="custom04" dest="custom04_str" maxChars="256"/>
+  <copyField source="custom03" dest="custom03_str" maxChars="256"/>
+  <copyField source="tagsfilename" dest="tagsfilename_str" maxChars="256"/>
+  <copyField source="custom06" dest="custom06_str" maxChars="256"/>
+  <copyField source="custom05" dest="custom05_str" maxChars="256"/>
     <!-- This can be enabled, in case the client does not know what fields may be searched. It isn't enabled by default
          because it's very expensive to index everything twice. -->
     <!-- <copyField source="*" dest="_text_"/> -->

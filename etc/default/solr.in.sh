@@ -53,21 +53,22 @@ let MEM=MEM/1024
 MAXMEM="512m"
 
 # if memory >= 2000 MB set max usable memory to 1000 MB
-if [ $MEM -gt 2000 ]
+if [ $MEM -gt 1400 ]
 then
-	MAXMEM="1000m"
+	MAXMEM="768m"
 fi
 
 # if memory >=4 GB set max usable memory to 2 GB
-if [ $MEM -gt 4000 ]
+if [ $MEM -gt 1900 ]
 then
-	MAXMEM="2000m"
+	let MAXMEM=MEM-1024
+	MAXMEM="${MAXMEM}m"
 fi
 
 # if memory => 8 GB set maximal usable memory to memory size - 4GB
-if [ $MEM -gt 8000 ]
+if [ $MEM -gt 2900 ]
 then
-	let MAXMEM=MEM-4000
+	let MAXMEM=MEM-1524
 	MAXMEM="${MAXMEM}m"
 fi
 
