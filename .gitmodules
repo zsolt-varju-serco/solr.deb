@@ -1,4 +1,4 @@
 [submodule "src/open-semantic-entity-search-api"]
 	path = src/open-semantic-entity-search-api
-	url = https://github.com/zsolt-varju-serco/open-semantic-entity-search-api
+	url = https://github.com/zsolt-varju-serco/open-semantic-entity-search-api.git
 	branch = master
